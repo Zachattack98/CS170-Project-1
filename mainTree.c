@@ -6,10 +6,8 @@ struct Node {
     struct Node* left;
     struct Node* right;
  
-    // val is the key or the value that
-    // has to be added to the data part
-    Node(int val)
-    {
+    // val is the value that has to be added to the data part
+    Node(int val) {
         data = val;
  
         // Left and right child for node
