@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
-#include "problem.h"
-#include "Node.h"
 #include "Tree.h"
+#include "problem.h"
+
 using namespace std;
  
 int main() {
@@ -19,13 +19,13 @@ int main() {
  
     /*create root; just practice*/
     struct Node* root = new Node(1);
-    root->left = new Node(2);
-    root->right = new Node(3);
-    root->left->left = new Node(4);
-    root->left->right = new Node(5);
+    root->left_child = new Node(2);
+    root->right_child = new Node(3);
+    root->left_child->left_child = new Node(4);
+    root->left_child->right_child = new Node(5);
  
     cout << "\n" << squares << "-Puzzle Solution of binary tree is \n";
-    DFS_Puzzle(root);
+    //DFS_Puzzle(root);
  
     return 0;
-}
+};
