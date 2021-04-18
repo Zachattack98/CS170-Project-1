@@ -9,6 +9,9 @@ using namespace std;
 
 class Tree {
   public:
+    Node* root;
+    priority_queue<Node*> frontier;
+
     void DFS_Puzzle(struct Node* node) {
         if (node == NULL)
             return;

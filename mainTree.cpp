@@ -18,14 +18,16 @@ int main() {
     }
  
     /*create root; just practice*/
-    struct Node* root = new Node(1);
+    Node* root = new Node(1);
     root->left_child = new Node(2);
     root->right_child = new Node(3);
     root->left_child->left_child = new Node(4);
     root->left_child->right_child = new Node(5);
- 
-    cout << "\n" << squares << "-Puzzle Solution of binary tree is \n";
-    //DFS_Puzzle(root);
+
+
+    //cout << "\n" << squares << "-Puzzle Solution of binary tree is \n";
+    Tree* tree;
+    tree->DFS_Puzzle(root);
  
     return 0;
 };
