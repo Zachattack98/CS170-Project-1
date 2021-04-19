@@ -3,6 +3,7 @@
 
 #include <bits/stdc++.h>
 #include "Node.h"
+#define N 3
 
 using namespace std;
 
@@ -65,6 +66,23 @@ class Tree {
         }
     }
 
+    /*
+    //Locate the square that does not contain a tile; this is the square to shift tiles to
+    const int FindBlankIndex {
+      int blankIndex[N]{N];    //index of blank square
+      
+      for(int i = 0; i < N; i++) {
+        for(int j = 0; j < N; j++) {
+              if(node->data[i][j] == 0) //check for the square containing 0
+                return blankIndex[i][j];
+        }
+      }
+    }
+     
+    void ShiftAdjacentTile {
+    
+    }
+    */
     void DFS_Puzzle(Node* node) {
         if (node == nullptr)
             return;
