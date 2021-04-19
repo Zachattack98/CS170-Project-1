@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 #include "Tree.h"
 #include "problem.h"
+#include <iostream>
 
 using namespace std;
  
@@ -9,13 +10,13 @@ int main() {
     int squares;  //total number of squares (including the blank square) in the puzzle
     int n;    //variable used for nxn array
  
-    cout << "How squares are in the puzzle?" << endl;
+    /*cout << "How squares are in the puzzle?" << endl;
     cin >> squares;
  
     if (sqrt(squares) == n) { //check if there is a valid number of squares for an nxn array
      cout << " Invalid number! Enter again" << endl;
      cin >> squares;
-    }
+    }*/
  
     /*create root; just practice*/
     Node* root = new Node(1);
@@ -26,8 +27,10 @@ int main() {
 
 
     //cout << "\n" << squares << "-Puzzle Solution of binary tree is \n";
-    Tree* tree;
-    tree->DFS_Puzzle(root);
+    Tree* tree = new Tree(root);
+    tree->TreeTraversal();
+
+    //tree->DFS_Puzzle(root);
  
     return 0;
 };
