@@ -37,7 +37,7 @@ vector<int> UC_search(vector<int> goal, int start) {
     // push the starting index into the queue
     ucs_q.push(make_pair(0, start));
  
-    // map to store nodes that have ben previously visited
+    // map to store nodes that have been previously visited; explored set
     map<int, int> visited;
  
     int count = 0;
@@ -45,10 +45,8 @@ vector<int> UC_search(vector<int> goal, int start) {
     // while the queue is not empty
     while (!ucs_q.empty()) {
  
-        // get the top element of the priority queue
+        // get the top element of the priority queue then pop that same element
         pair<int, int> p = ucs_q.top();
- 
-        // pop the element
         queue.pop();
  
         // get the original value
