@@ -16,9 +16,8 @@ using namespace std;
 
 class UCS_Alg {
 
-// graph
+//graph
 vector<vector<int> > graph;
- 
 // map to store cost of edges
 map<pair<int, int>, int> cost;
  
@@ -27,15 +26,16 @@ vector<int> UC_search(vector<int> goal, int start) {
     // minimum cost of starting state to goal state
     vector<int> answer;
  
-    // create a priority queue
+    // create a priority queue; along with its own variable
     priority_queue<pair<int, int> > my_queue;
+    my_queue ucs_q;
  
     // set the answer vector to max value
     for (int i = 0; i < goal.size(); i++)
         answer.push_back(INT_MAX);
  
     // push the starting index into the queue
-    my_queue.push(make_pair(0, start));
+    ucs_q.push(make_pair(0, start));
  
     // map to store nodes that have ben previously visited
     map<int, int> visited;
@@ -43,11 +43,10 @@ vector<int> UC_search(vector<int> goal, int start) {
     int count = 0;
  
     // while the queue is not empty
-    while (queue.size() > 0) {
+    while (!ucs_q.empty()) {
  
-        // get the top element of the
-        // priority queue
-        pair<int, int> p = queue.top();
+        // get the top element of the priority queue
+        pair<int, int> p = ucs_q.top();
  
         // pop the element
         queue.pop();
@@ -55,8 +54,7 @@ vector<int> UC_search(vector<int> goal, int start) {
         // get the original value
         p.first *= -1;
  
-        // check if the element is part of
-        // the goal list
+        // check if the element is part of the goal list
         if (find(goal.begin(), goal.end(), p.second) != goal.end()) {
  
             // get the position
