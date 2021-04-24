@@ -17,8 +17,10 @@ int main() {
     int make_puzzle[3][3]; //user created puzzle
     int pz_choice;   //user's choice of puzzle to implement
     int alg_choice;  //user's choice of the three possible search algorithms
- 
- 
+    char proceed = 'Y';   //continuation of the game; set to yes by default
+    
+  while(proceed == 'Y') {
+    //Enter which type of puzzle you want to solve
     cout << "Enter '1' for a default puzzle, or '2' to create your own 8-square puzzle: " << endl;
     cin >> pz_choice;
   
@@ -28,7 +30,7 @@ int main() {
     }
  
     if(pz_choice == 1) {
-     init_state -> dft_puzzle;
+     init_state -> dft_puzzle;  //default puzzle set as initial puzzle
     }
     else if(ppz_choice == 2) {
       cout << "\n\n Now enter a puzzle numbered '1'-'8' with '0' as the blank, three separate rows and 3 numbers each!\n\n" << endl;
@@ -36,11 +38,45 @@ int main() {
       for(int i=0; i<=2; i++) {
         cout << "Enter numbers in row " << i << ": ";
         for(int j=0; j<=2; j++) {
-          cin >> make_puzzle[i][j];
+          cin >> make_puzzle[i][j]; //inputting each individual tile
         }
       }
-     init_puzzle -> makepuzzle;
+     
+     //Invalid numbers
+     //while()
+     
+     init_puzzle -> makepuzzle; //personal puzzle set as as initial puzzle
     }
+ 
+ 
+    cout << "Here is a list of algorithms to choose from." << endl;
+    cout << "\n--------------------------------------------\n\n";
+    cout << "1. Uniform Cost Search" << endl;
+    cout << "2. A* Search with Misplaced Tiles" << endl;
+    cout << "3. A* Search Using Euclidean Distance" << endl << endl;
+ 
+    //Enter the algorithm to solve the 8 puzzle
+    cout << "Choose which algorithm you wish to implement from the list above: ";
+    cin >> alg_choice;
+ 
+    //
+    //
+    //
+    //
+ 
+    cout << "\n\n!!!!GOAL REACHED!!!!" << endl << endl;
+ 
+    //Display number of nodes expanded
+    cout << "To solve this problem the search algorithm expanded a total of " << node << "nodes." << endl << endl;
+ 
+    //Display maximum queue size
+    cout << "The maximum number of nodes in the queue at any one time is " << queue_nodes << " nodes." << endl << endl;
+ 
+    cout << "Do you wish to solve another puzzle? Y or N" << endl;
+    cin >> proceed;
+     
+    cout << "\n\n\n\n";
+  }
  
  
     /*cout << "How squares are in the puzzle?" << endl;
