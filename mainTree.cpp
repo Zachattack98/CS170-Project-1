@@ -23,12 +23,26 @@ int main() {
     cin >> pz_choice;
   
     while(pz_choice != 1 && pz_choice != 2) {
-     
+         cout << "\n\nThat is not a valid choice! Please re-enter your choice: ";
+         cin >> pz_choice;
     }
  
     if(pz_choice == 1) {
      init_state -> dft_puzzle;
     }
+    else if(ppz_choice == 2) {
+      cout << "\n\n Now enter a puzzle numbered '1'-'8' with '0' as the blank, three separate rows and 3 numbers each!\n\n" << endl;
+     
+      for(int i=0; i<=2; i++) {
+        cout << "Enter numbers in row " << i << ": ";
+        for(int j=0; j<=2; j++) {
+          cin >> make_puzzle[i][j];
+        }
+      }
+     init_puzzle -> makepuzzle;
+    }
+ 
+ 
     /*cout << "How squares are in the puzzle?" << endl;
     cin >> squares;
  
