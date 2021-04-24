@@ -2,6 +2,7 @@
 #define HEURISTIC_SEARCH_H_
 
 #include <iostream>
+#include <cmath>
 #include <vector>
 #include <string>
 #include <list>
@@ -47,10 +48,12 @@ class Heuristic_Search {
 					        for(int l = 0; l < 3; l++) {
                     //check each value of the goal puzzle and locate the matching value in the current puzzle
 						        if(goal_puzzle.at(i).at(j) == curr_puzzle.at(k).at(l)) {
-                    
-							        temp_Heur += abs(i - k);  //comparing the positions in rows
-							        temp_Heur += abs(j - l);  //comparing the positions in columns
+                    						//Manhattan Distance
+							        //temp_Heur += abs(i - k);  //comparing the positions in rows
+							        //temp_Heur += abs(j - l);  //comparing the positions in columns
                       
+								//Euclidean Distance
+								temp_Heur = sqrt((i - k)^2 + (j- l)^2);
 						        }
 					        }
 				        }
