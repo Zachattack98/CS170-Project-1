@@ -7,9 +7,28 @@ using namespace std;
  
 int main() {
  
-    int squares;  //total number of squares (including the blank square) in the puzzle
-    int n;    //variable used for nxn array
+    //int squares;  //total number of squares (including the blank square) in the puzzle
+    //int n;    //variable used for nxn array
  
+ 
+    int dft_puzzle[3][3] = { {1, 5, 2},
+                             {0, 4, 3},
+                             {7, 8, 6}};  //default puzzle; 5 moves to soluton
+    int make_puzzle[3][3]; //user created puzzle
+    int pz_choice;   //user's choice of puzzle to implement
+    int alg_choice;  //user's choice of the three possible search algorithms
+ 
+ 
+    cout << "Enter '1' for a default puzzle, or '2' to create your own 8-square puzzle: " << endl;
+    cin >> pz_choice;
+  
+    while(pz_choice != 1 && pz_choice != 2) {
+     
+    }
+ 
+    if(pz_choice == 1) {
+     init_state -> dft_puzzle;
+    }
     /*cout << "How squares are in the puzzle?" << endl;
     cin >> squares;
  
@@ -19,11 +38,11 @@ int main() {
     }*/
  
     /*create root; just practice*/
-    Node* root = new Node(1);
+    /*Node* root = new Node(1);
     root->left_child = new Node(2);
     root->right_child = new Node(3);
     root->left_child->left_child = new Node(4);
-    root->left_child->right_child = new Node(5);
+    root->left_child->right_child = new Node(5);*/
 
 
     //cout << "\n" << squares << "-Puzzle Solution of binary tree is \n";
