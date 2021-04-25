@@ -28,7 +28,7 @@ int main() {
 
     //cout << "\n" << squares << "-Puzzle Solution of binary tree is \n";
     Tree* tree = new Tree(root);
-    tree->TreeTraversal();
+    //tree->TreeTraversal();
 
     //tree->DFS_Puzzle(root);
  

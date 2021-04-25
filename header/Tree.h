@@ -9,10 +9,14 @@ using namespace std;
 
 //creating a Depth-First Search Tree containing all possible states until the goal state is reached
 
+typedef pair<int, Node*> node_pair;
+
 class Tree {
   public:
     Node* root;
-    stack<Node*> frontier;
+    priority_queue<node_pair, vector<node_pair>, greater<node_pair>> frontier;
+    stack<Node*> explored;
+
     int totalExpand;     //total number of nodes expanded
 
     //initialize the tree
@@ -20,9 +24,10 @@ class Tree {
         if (input_root == NULL)
             return;
         this->root = input_root;
-        frontier.push(this->root);
+        frontier.push(make_pair(0, this->root));
     }
 
+    /*
     void TreeTraversal() {
         PrintPuzzle(root);
         frontier.pop();
@@ -67,7 +72,7 @@ class Tree {
         }
     }
 
-    /*
+
     //Locate the square that does not contain a tile; this is the square to shift tiles to
     const int FindBlankIndex {
       int blankIndex[N]{N];    //index of blank square
@@ -84,6 +89,7 @@ class Tree {
     
     }
     */
+
     void DFS_Puzzle(Node* node) {
         if (node == nullptr)
             return;
