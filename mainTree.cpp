@@ -19,11 +19,11 @@ int main() {
     }*/
  
     /*create root; just practice*/
-    Node* root = new Node(1);
-    root->left_child = new Node(2);
-    root->right_child = new Node(3);
-    root->left_child->left_child = new Node(4);
-    root->left_child->right_child = new Node(5);
+    Node* root = new Node();
+//    root->left_child = new Node(2);
+//    root->right_child = new Node(3);
+//    root->left_child->left_child = new Node(4);
+//    root->left_child->right_child = new Node(5);
 
 
     //cout << "\n" << squares << "-Puzzle Solution of binary tree is \n";

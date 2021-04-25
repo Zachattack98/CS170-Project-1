@@ -27,18 +27,16 @@ class Node {
             }
         }
 
-        Node(int val){
-            for (int i = 0; i < 3; i++) {
-                for (int j = 0; j < 3; j++) {
-                    data[i][j] = val;
-                }
-            }
+//        Node(int val){
+//            for (int i = 0; i < 3; i++) {
+//                for (int j = 0; j < 3; j++) {
+//                    data[i][j] = val;
+//                }
+//            }
+//        }
 
-            // Up, down, left and right child are all empty at the start
-            up_child = NULL;
-            down_child = NULL;
-            left_child = NULL;
-            right_child = NULL;
+        Node(int val[3][3]){
+            this->data[3][3] = val[3][3];
         }
 
 };

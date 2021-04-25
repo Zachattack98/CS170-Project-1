@@ -9,8 +9,8 @@
 using namespace std;
 
 class Problem {
-  int intial_state[3][3];   //the state we begin with before doing any operations
-  int goal_state[3][3];     //the anticipated state we hope to end the tree with
+  //int intial_state[3][3];   //the state we begin with before doing any operations
+  int goal_state[3][3] = { {1, 2, 3}, {4, 5, 6}, {7, 8, 0} };     //the anticipated state we hope to end the tree with
   //Node* operators;    //a pointer for all the possible moves each node can make
 
   bool GraphSearch() {
@@ -19,11 +19,12 @@ class Problem {
       node_pair currTop;
 
       while(1) {
-          currTop = tree->frontier.top();
           if (tree->frontier.empty()) {
               return false;
           }
-          if (tree->frontier.top().second->data == goal_state) {
+
+          currTop = tree->frontier.top();
+          if (checkGoal(currTop.second)) {
               return true;
           }
           tree->explored.push(currTop.second);
@@ -34,10 +35,22 @@ class Problem {
 
   void expand(node_pair node, Tree* tree) {
       Shift* shift;
-      tree->frontier.push(make_pair(tree->frontier.top().first + 1, shift->Move_Left(node.second)));
-      tree->frontier.push(make_pair(tree->frontier.top().first + 1, shift->Move_Right(node.second)));
-      tree->frontier.push(make_pair(tree->frontier.top().first + 1, shift->Move_Up(node.second)));
-      tree->frontier.push(make_pair(tree->frontier.top().first + 1, shift->Move_Down(node.second)));
+      shift->Move_Up(node, tree);
+//      tree->frontier.push(make_pair(tree->frontier.top().first + 1, shift->Move_Left(node.second)));
+//      tree->frontier.push(make_pair(tree->frontier.top().first + 1, shift->Move_Right(node.second)));
+//      tree->frontier.push(make_pair(tree->frontier.top().first + 1, shift->Move_Up(node.second)));
+//      tree->frontier.push(make_pair(tree->frontier.top().first + 1, shift->Move_Down(node.second)));
+  }
+
+  bool checkGoal(Node* node) {
+      for (int i = 0; i < 3; i++) {
+          for (int j = 0; i < 3; i++) {
+              if (node->data[i][j] != goal_state[i][j]) {
+                  return false;
+              }
+          }
+      }
+      return true;
   }
 
 };
