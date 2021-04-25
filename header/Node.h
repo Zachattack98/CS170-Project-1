@@ -17,14 +17,25 @@ class Node {
 
         // val is the value that has to be added to the data part
         Node() {
-            int val;
-            for (int i = 0; i < 3; i++) {
-                for (int j = 0; j < 3; j++) {
-                    cout << "Insert value for row " << i << " and column " << j << ":" << endl;
-                    cin >> val;
-                    data[i][j] = val;
-                }
-            }
+//            int val;
+//
+//            for (int i = 0; i < 3; i++) {
+//                for (int j = 0; j < 3; j++) {
+//                    cout << "Insert value for row " << i << " and column " << j << ":" << endl;
+//                    cin >> val;
+//                    data[i][j] = i + j;
+//                }
+//            }
+            data[0][0] = 3;
+            data[0][1] = 1;
+            data[0][2] = 2;
+            data[1][0] = 0;
+            data[1][1] = 4;
+            data[1][2] = 5;
+            data[2][0] = 6;
+            data[2][1] = 7;
+            data[2][2] = 8;
+
         }
 
 //        Node(int val){
@@ -38,6 +49,13 @@ class Node {
         Node(int val[3][3]){
             this->data[3][3] = val[3][3];
         }
+
+    void nodePrint() {
+        cout << "Puzzle: " << endl << data[0][0] << " " << data[0][1] << " " << data[0][2] << " "
+             << endl << data[1][0] << " " << data[1][1] << " " << data[1][2] << " " << endl
+             << data[2][0] << " " << data[2][1] << " " << data[2][2] << " " << endl;
+    }
+
 
 };
 
