@@ -17,7 +17,7 @@ public:
   bool GraphSearch(Node* root) {
       //Node* root = new Node();
       Tree* tree = new Tree(root);
-      node_pair currTop;
+      Node* currTop;
 
       while(1) {
           if (tree->frontier.empty()) {
@@ -25,20 +25,19 @@ public:
           }
 
           currTop = tree->frontier.top();
-          if (checkGoal(currTop.second)) {
-              currTop.second->nodePrint();
+          if (checkGoal(currTop)) {
               return true;
           }
-          tree->explored.push(currTop.second);
+          tree->explored.push(currTop);
           tree->frontier.pop();
           expand(currTop, tree);
       }
   }
 
-  void expand(node_pair node, Tree* tree) {
+  void expand(Node* node, Tree* tree) {
       Shift* shift;
-      shift->Move_Up(node, tree);
-      node.second->up_child->nodePrint();
+       shift->Move_Up(node, tree);
+      //node.second->up_child->nodePrint();
 //      tree->frontier.push(make_pair(tree->frontier.top().first + 1, shift->Move_Left(node.second)));
 //      tree->frontier.push(make_pair(tree->frontier.top().first + 1, shift->Move_Right(node.second)));
 //      tree->frontier.push(make_pair(tree->frontier.top().first + 1, shift->Move_Up(node.second)));

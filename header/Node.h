@@ -8,6 +8,7 @@ using namespace std;
 //use struct as its members are public by default
 class Node {
     public:
+        int cost;
         int data[3][3];                   //data found found at each state; the new 8-puzzle we acquire after each operation
         Node* parent = nullptr;
         Node* up_child = nullptr;          //the child containing the puzzle after moving tile upward
@@ -51,9 +52,9 @@ class Node {
         }
 
     void nodePrint() {
-        cout << "Puzzle: " << endl << data[0][0] << " " << data[0][1] << " " << data[0][2] << " "
-             << endl << data[1][0] << " " << data[1][1] << " " << data[1][2] << " " << endl
-             << data[2][0] << " " << data[2][1] << " " << data[2][2] << " " << endl;
+        cout << "Puzzle: " << endl << this->data[0][0] << " " << this->data[0][1] << " " << this->data[0][2] << " "
+             << endl << this->data[1][0] << " " << this->data[1][1] << " " << this->data[1][2] << " " << endl
+             << this->data[2][0] << " " << this->data[2][1] << " " << this->data[2][2] << " " << endl;
     }
 
 

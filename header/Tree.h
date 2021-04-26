@@ -9,12 +9,20 @@ using namespace std;
 
 //creating a Depth-First Search Tree containing all possible states until the goal state is reached
 
-typedef pair<int, Node*> node_pair;
+struct CompareHeight {
+    bool operator()(Node const& n1, Node const& n2)
+    {
+        // return "true" if "p1" is ordered
+        // before "p2", for example:
+        return n1.cost < n2.cost;
+    }
+};
 
 class Tree {
   public:
     Node* root;
-    priority_queue<node_pair, vector<node_pair>, greater<node_pair>> frontier;
+    priority_queue<Node*> frontier;
+    //priority_queue<node_pair, vector<node_pair>, greater<node_pair>> frontier;
     stack<Node*> explored;
 
     int totalExpand;     //total number of nodes expanded
@@ -24,7 +32,8 @@ class Tree {
         if (input_root == NULL)
             return;
         this->root = input_root;
-        frontier.push(make_pair(0, this->root));
+        root->cost = 0;
+        frontier.push(root);
     }
 
     /*

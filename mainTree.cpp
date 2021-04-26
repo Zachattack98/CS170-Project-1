@@ -9,14 +9,7 @@ int main() {
  
     int squares;  //total number of squares (including the blank square) in the puzzle
     int n;    //variable used for nxn array
- 
-    /*cout << "How squares are in the puzzle?" << endl;
-    cin >> squares;
- 
-    if (sqrt(squares) == n) { //check if there is a valid number of squares for an nxn array
-     cout << " Invalid number! Enter again" << endl;
-     cin >> squares;
-    }*/
+
  
     /*create root; just practice*/
     Node* root = new Node();
