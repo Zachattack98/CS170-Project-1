@@ -38,15 +38,15 @@ class Heuristic_Search {
         
         int Euclid_A_Search(curr_puzzle) {
             //A* search is similar to UCS, except using the frontier to add to sides of the graph
-            UC_search(frontier->goal_state, init_state);  //g(n) upper half
-            UC_search(goal_state, frontier->init_state);  //h(n) lower half
+            //UC_search(frontier->goal_state, init_state);  //g(n) upper half
+            //UC_search(goal_state, frontier->init_state);  //h(n) lower half
             
             for(int i = 0; i < 3; i++) {
 			        for(int j = 0; j < 3; j++) {
 				        for(int k = 0; k < 3; k++) {
 					        for(int l = 0; l < 3; l++) {
-                    //check each value of the goal puzzle and locate the matching value in the current puzzle
-						        if(goal_puzzle.at(i).at(j) == curr_puzzle.at(k).at(l)) {
+                    					//check each value of the goal puzzle and locate the matching value in the current puzzle; do not check the blank square
+						        if(curr_puzzle.at(k).at(l) != 0 && curr_puzzle.at(k).at(l) == goal_puzzle.at(i).at(j)) {
                     
 							        temp_Heur += abs(i - k);  //comparing the positions in rows
 							        temp_Heur += abs(j - l);  //comparing the positions in columns
@@ -60,16 +60,16 @@ class Heuristic_Search {
         }
       
         int Misplaced_A_Search(curr_puzzle) {
-            UC_search(frontier->goal_state, init_state);  //g(n) upper half
-            UC_search(goal_state, frontier->init_state);  //h(n) lower half
+            //UC_search(frontier->goal_state, init_state);  //g(n) upper half
+            //UC_search(goal_state, frontier->init_state);  //h(n) lower half
             
             for(int i = 0; i < 3; i++) {
-			        for(int j = 0; j < 3; j++) {
-                //check whether the value is in its final position
-				        if(goal_puzzle.at(i).at(j) != curr_puzzle.at(k).at(l)) {
-                  temp_Heur++; //increment the total number of misplace tiles
-						    }
-			        }
+		for(int j = 0; j < 3; j++) {
+                //check whether the value is in its final position; do not compare the blank square
+			if(curr_puzzle.at(i).at(j) != 0 && curr_puzzle.at(i).at(j) != goal_puzzle.at(i).at(j)) {
+                            temp_Heur++; //increment the total number of misplace tiles
+			}
+		}
             }
             return temp_Heur;
         }
