@@ -13,7 +13,6 @@ int main() {
  
     /*create root; just practice*/
     Node* root = new Node();
-    root->nodePrint();
     Problem problem;
     if (problem.GraphSearch(root)) {
         cout << "Solution found!" << endl;

@@ -17,24 +17,24 @@ public:
   bool GraphSearch(Node* root) {
       //Node* root = new Node();
       Tree* tree = new Tree(root);
-      Node* currTop;
+      node_pair currTop;
 
       while(1) {
           if (tree->frontier.empty()) {
               return false;
           }
-
+          tree->frontier.top().second->nodePrint();
           currTop = tree->frontier.top();
-          if (checkGoal(currTop)) {
+          if (checkGoal(currTop.second)) {
               return true;
           }
-          tree->explored.push(currTop);
-          tree->frontier.pop();
+          tree->explored.push(currTop.second);
           expand(currTop, tree);
+          tree->frontier.pop();
       }
   }
 
-  void expand(Node* node, Tree* tree) {
+  void expand(node_pair node, Tree* tree) {
       Shift* shift;
        shift->Move_Up(node, tree);
       //node.second->up_child->nodePrint();
