@@ -38,7 +38,7 @@ class Shift {
                  copyData(slide, shift_child);
                  //switch tiles
                  tempMove = shift_child->data[rowBlank - 1][colBlank];
-                 shift_child->data[rowBlank - 1][colBlank] = 0;      //here the value below the tile becomes the new empty space
+                 shift_child->data[rowBlank - 1][colBlank] = shift_child->data[rowBlank][colBlank];      //here the value below the tile becomes the new empty space
                  shift_child->data[rowBlank][colBlank] = tempMove;
                  shift_child->cost = slide->cost + 1;
                  shift_child->nodePrint();
@@ -57,62 +57,62 @@ class Shift {
         /*
         Node* Move_Down(Node* slide) {
               
-              if(slide->parent != data[3][1] && slide->parent != data[3][2] && slide->parent != data[3][3]) {
-                FindBlankIndex(rowBlank, colBlank);
-
+              if(rowBlank != 2) {
+                 Node* shift_child = new Node();
+                 shift_child->nodePrint();
+                 slide->down_child = shift_child;
+                 copyData(slide, shift_child);
                  //switch tiles
-                 tempMove = data[rowBlank + 1][colBlank];
-                 data[rowBlank + 1][colBlank] = 0;
-                 data[rowBlank][colBlank] = tempMove;
+                 tempMove = shift_child->data[rowBlank + 1][colBlank];
+                 shift_child->data[rowBlank + 1][colBlank] = shift_child->data[rowBlank][colBlank];      //here the value below the tile becomes the new empty space
+                 shift_child->data[rowBlank][colBlank] = tempMove;
+                 shift_child->cost = slide->cost + 1;
+                 shift_child->nodePrint();
 
-                 slide->shift_child = tempMove;
-
-                 //update the column blank index to moving down
-                 colBlank +=1;
-                 //add another node expanded
-                 totalExpand += 1;
+                  tree->frontier.push(shift_child); //ERROR WHEN PUSHING TO FRONTIER
+                  //tree->frontier.top().second->nodePrint();
+                  return;
               }
-              return shift_child; //return new data to down_child
         }
 
         Node* Move_Left(Node* slide) {
               
-              if(slide->parent != data[1][1] && slide->parent != data[2][1] && slide->parent != data[3][1]) {
-                 FindBlankIndex(rowBlank, colBlank);
-
+              if(colBlank != 0) {
+                 Node* shift_child = new Node();
+                 shift_child->nodePrint();
+                 slide->left_child = shift_child;
+                 copyData(slide, shift_child);
                  //switch tiles
-                 tempMove = data[rowBlank][colBlank - 1];
-                 data[rowBlank][colBlank - 1] = 0;      
-                 data[rowBlank][colBlank] = tempMove;
+                 tempMove = shift_child->data[rowBlank][colBlank - 1];
+                 shift_child->data[rowBlank][colBlank - 1] = shift_child->data[rowBlank][colBlank];      //here the value below the tile becomes the new empty space
+                 shift_child->data[rowBlank][colBlank] = tempMove;
+                 shift_child->cost = slide->cost + 1;
+                 shift_child->nodePrint();
 
-                 slide->shift_child = tempMove;
-
-                 //update the row blank index to moving left
-                 rowBlank -=1;
-                 //add another node expanded
-                 totalExpand += 1;
+                  tree->frontier.push(shift_child); //ERROR WHEN PUSHING TO FRONTIER
+                  //tree->frontier.top().second->nodePrint();
+                  return;
               }
-              return shift_child; //return new data to left_child
         }
 
         Node* Move_Right(Node* slide) {
               
-              if(slide->parent != data[1][3] && slide->parent != data[2][3] && slide->parent != data[3][3]) {
-                 FindBlankIndex(rowBlank, colBlank);
-
+              if(colBlank != 2) {
+                 Node* shift_child = new Node();
+                 shift_child->nodePrint();
+                 slide->right_child = shift_child;
+                 copyData(slide, shift_child);
                  //switch tiles
-                 tempMove = data[rowBlank][colBlank + 1];
-                 data[rowBlank][colBlank + 1] = 0;
-                 data[rowBlank][colBlank] = tempMove;
+                 tempMove = shift_child->data[rowBlank][colBlank + 1];
+                 shift_child->data[rowBlank][colBlank + 1] = shift_child->data[rowBlank][colBlank];      //here the value below the tile becomes the new empty space
+                 shift_child->data[rowBlank][colBlank] = tempMove;
+                 shift_child->cost = slide->cost + 1;
+                 shift_child->nodePrint();
 
-                 slide->shift_child = tempMove;
-
-                 //update the row blank to moving right
-                 rowBlank +=1;
-                 //add another node expanded
-                 totalExpand += 1;
+                  tree->frontier.push(shift_child); //ERROR WHEN PUSHING TO FRONTIER
+                  //tree->frontier.top().second->nodePrint();
+                  return;
               }
-              return shift_child; //return new data to right_child
         }
          */
 
@@ -120,7 +120,7 @@ class Shift {
             for(int i = 0; i < 3; i++) {
                 for(int j = 0; j < 3; j++) {
                     if(node->data[i][j] == 0) { //check for the square containing 0
-                        row = i;
+                        row = i; 
                         col = j;
                         return;
                     }
