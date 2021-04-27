@@ -16,6 +16,7 @@ int main() {
     Problem problem;
     if (problem.GraphSearch(root)) {
         cout << "Solution found!" << endl;
+        cout << problem.expanded << " nodes expanded." << endl;
     }
     else {
         cout << "Solution Failed!" << endl;

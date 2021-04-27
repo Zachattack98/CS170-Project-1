@@ -10,6 +10,7 @@ using namespace std;
 
 class Problem {
 public:
+    int expanded = 1;
   //int intial_state[3][3];   //the state we begin with before doing any operations
   int goal_state[3][3] = { {0, 1, 2}, {3, 4, 5}, {6, 7, 8} };     //the anticipated state we hope to end the tree with
   //Node* operators;    //a pointer for all the possible moves each node can make
@@ -35,13 +36,12 @@ public:
   }
 
   void expand(node_pair node, Tree* tree) {
+      expanded++;
       Shift* shift;
        shift->Move_Up(node, tree);
-      //node.second->up_child->nodePrint();
-//      tree->frontier.push(make_pair(tree->frontier.top().first + 1, shift->Move_Left(node.second)));
-//      tree->frontier.push(make_pair(tree->frontier.top().first + 1, shift->Move_Right(node.second)));
-//      tree->frontier.push(make_pair(tree->frontier.top().first + 1, shift->Move_Up(node.second)));
-//      tree->frontier.push(make_pair(tree->frontier.top().first + 1, shift->Move_Down(node.second)));
+       shift->Move_Down(node, tree);
+       shift->Move_Left(node, tree);
+       shift->Move_Right(node, tree);
   }
 
   bool checkGoal(Node* node) {
