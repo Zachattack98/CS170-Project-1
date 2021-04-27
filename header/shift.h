@@ -12,6 +12,7 @@ class Shift {
     public:
         //child node to store the shift after it occurs
         int tempMove;  //temporary movement variable
+        int depth;
         //int moveCost;  //variable for storing cost one the particular movement
 
 
@@ -43,6 +44,8 @@ class Shift {
                  shift_child->data[rowBlank][colBlank] = tempMove;
                  shift_child->cost = slide.first + 1;
 
+                 depth++;
+                 
                   tree->frontier.push(make_pair(slide.first + 1, shift_child)); //ERROR WHEN PUSHING TO FRONTIER
                   return;
 
