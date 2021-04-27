@@ -19,9 +19,8 @@ class Heuristic_Search {
         vector< vector<char> > goal_puzzle;   // the goal where each tile should be correctly positioned
       
         int temp_Heur = 0;  //temporary cost variable 
-        Node* h_n;
         int maxQueueNodes = 0;  //store the maximum nodes in the queue
-        int g_n;
+        int f_n;    //result of adding UCS and heuristic search
 
         //initialize each row for the goal puzzle
         static const char arr1[] = {'1', '2', '3'};
@@ -72,23 +71,21 @@ class Heuristic_Search {
         }
 
 
-        int Calc_A_Euclid() {
-            int f_n;
+        int Calc_A_Euclid(Node *h_n) {
             //Top half of A* search is similar to UCS; Bottom half is calculating the heuristic search
             //h_n = UC_search(frontier->goal_state, init_state);  //g(n) upper half
-            g_n = Euclid_A_Search(frontier->init_state);  //h(n) lower half
+            //g_n = Euclid_A_Search(frontier->init_state);  //h(n) lower half
 
-            return f_n = g_n + h_n->depth;
+            return f_n = Euclid_A_Search(frontier->init_state) + h_n->depth;
 
         }
 
 
-        int Calc_A_Misplaced() {
-            int f_n;
+        int Calc_A_Misplaced(Node *h_n) {
             //h_n = UC_search(frontier->goal_state, init_state);  //g(n) upper half
-            g_n = Misplaced_A_Search(frontier->init_state);  //h(n) lower half
+            //g_n = Misplaced_A_Search(frontier->init_state);  //h(n) lower half
 
-            return f_n = g_n + h_n->depth;
+            return f_n = Misplaced_A_Search(frontier->init_state) + h_n->depth;
         }
 };
 
