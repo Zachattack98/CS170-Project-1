@@ -19,8 +19,10 @@ class Heuristic_Search {
         vector< vector<char> > goal_puzzle;   // the goal where each tile should be correctly positioned
       
         int temp_Heur = 0;  //temporary cost variable 
+        Node* h_n;
         int maxQueueNodes = 0;  //store the maximum nodes in the queue
-        
+        int g_n;
+
         //initialize each row for the goal puzzle
         static const char arr1[] = {'1', '2', '3'};
 	      static const char arr2[] = {'4', '5', '6'};
@@ -37,9 +39,6 @@ class Heuristic_Search {
 	      goal_puzzle.push_back(vec3);
         
         int Euclid_A_Search(curr_puzzle) {
-            //A* search is similar to UCS, except using the frontier to add to sides of the graph
-            //UC_search(frontier->goal_state, init_state);  //g(n) upper half
-            //UC_search(goal_state, frontier->init_state);  //h(n) lower half
             
             for(int i = 0; i < 3; i++) {
 			        for(int j = 0; j < 3; j++) {
@@ -60,8 +59,6 @@ class Heuristic_Search {
         }
       
         int Misplaced_A_Search(curr_puzzle) {
-            //UC_search(frontier->goal_state, init_state);  //g(n) upper half
-            //UC_search(goal_state, frontier->init_state);  //h(n) lower half
             
             for(int i = 0; i < 3; i++) {
 		for(int j = 0; j < 3; j++) {
@@ -72,6 +69,26 @@ class Heuristic_Search {
 		}
             }
             return temp_Heur;
+        }
+
+
+        int Calc_A_Euclid() {
+            int f_n;
+            //Top half of A* search is similar to UCS; Bottom half is calculating the heuristic search
+            //h_n = UC_search(frontier->goal_state, init_state);  //g(n) upper half
+            g_n = Euclid_A_Search(frontier->init_state);  //h(n) lower half
+
+            return f_n = g_n + h_n->depth;
+
+        }
+
+
+        int Calc_A_Misplaced() {
+            int f_n;
+            //h_n = UC_search(frontier->goal_state, init_state);  //g(n) upper half
+            g_n = Misplaced_A_Search(frontier->init_state);  //h(n) lower half
+
+            return f_n = g_n + h_n->depth;
         }
 };
 
