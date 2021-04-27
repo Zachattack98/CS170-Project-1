@@ -25,6 +25,7 @@ class Tree {
 
     priority_queue<node_pair, vector<node_pair>, greater<node_pair>> frontier;
     stack<Node*> explored;
+    vector<Node*> explore;
 
     int totalExpand;     //total number of nodes expanded
 
@@ -39,83 +40,6 @@ class Tree {
 
         frontier.push(make_pair(0, root));
         frontier.push(make_pair(1000000, root));
-    }
-
-    /*
-    void TreeTraversal() {
-        PrintPuzzle(root);
-        frontier.pop();
-
-        if (root->up_child != nullptr) {
-            frontier.push(root->up_child);
-        }
-        if (root->down_child != nullptr) {
-            frontier.push(root->down_child);
-        }
-        if (root->left_child != nullptr) {
-            frontier.push(root->left_child);
-        }
-        if (root->right_child != nullptr) {
-            frontier.push(root->right_child);
-        }
-
-        if (frontier.top() != nullptr) {
-            TreeTraversal(frontier.top());
-        }
-    }
-
-    void TreeTraversal(Node* node) {
-        PrintPuzzle(node);
-        frontier.pop();
-
-        if (node->up_child != nullptr) {
-            frontier.push(node->up_child);
-        }
-        if (node->down_child != nullptr) {
-            frontier.push(node->down_child);
-        }
-        if (node->left_child != nullptr) {
-            frontier.push(node->left_child);
-        }
-        if (node->right_child != nullptr) {
-            frontier.push(node->right_child);
-        }
-
-        if (frontier.top() != nullptr) {
-            TreeTraversal(frontier.top());
-        }
-    }
-
-
-    
-
-    //Locate the square that does not contain a tile; this is the square to shift tiles to
-    int FindBlankIndex(int i, int j) {
-      int blankIndex[N]{N];    //index of blank square
-      
-      for(i = 0; i < N; i++) {
-        for(j = 0; j < N; j++) {
-              if(node->data[i][j] == 0) //check for the square containing 0
-                return blankIndex[i][j];
-        }
-      }
-    }
-
-    }
-    */
-
-
-    void DFS_Puzzle(Node* node) {
-        if (node == nullptr)
-            return;
-        /* first print data/nxn array of node */
-        PrintPuzzle(node);
-
-        /* then recur on left subtree */
-        DFS_Puzzle(node->left_child);
-
-        /* now recur on right subtree */
-        DFS_Puzzle(node->right_child);
     }
 
     void PrintPuzzle(Node* node) {

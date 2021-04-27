@@ -12,7 +12,7 @@ class Problem {
 public:
     int expanded = 1;
   //int intial_state[3][3];   //the state we begin with before doing any operations
-  int goal_state[3][3] = { {0, 1, 2}, {3, 4, 5}, {6, 7, 8} };     //the anticipated state we hope to end the tree with
+  int goal_state[3][3] = { {1, 2, 3}, {4, 5, 6}, {7, 8, 0} };     //the anticipated state we hope to end the tree with
   //Node* operators;    //a pointer for all the possible moves each node can make
 
   bool GraphSearch(Node* root) {
@@ -32,6 +32,7 @@ public:
           tree->explored.push(currTop.second);
           expand(currTop, tree);
           tree->frontier.pop();
+          tree->explore.push_back(currTop.second);
       }
   }
 

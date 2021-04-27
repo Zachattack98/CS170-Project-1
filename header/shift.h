@@ -21,9 +21,9 @@ class Shift {
             int rowBlank, colBlank;
             //FindBlankIndex(slide.second, rowBlank, colBlank);
 
-//                if (!isValidMove(slide, tree)) {
-//                    return;
-//                }
+                if (!isValidMove(slide.second, tree)) {
+                    return;
+                }
                 for(int i = 0; i < 3; i++) {
                     for(int j = 0; j < 3; j++) {
                         if(slide.second->data[i][j] == 0) { //check for the square containing 0
@@ -57,9 +57,9 @@ class Shift {
             int rowBlank, colBlank;
             //FindBlankIndex(slide.second, rowBlank, colBlank);
 
-    //                if (!isValidMove(slide, tree)) {
-    //                    return;
-    //                }
+                    if (!isValidMove(slide.second, tree)) {
+                        return;
+                    }
             for(int i = 0; i < 3; i++) {
                 for(int j = 0; j < 3; j++) {
                     if(slide.second->data[i][j] == 0) { //check for the square containing 0
@@ -91,9 +91,9 @@ class Shift {
             int rowBlank, colBlank;
             //FindBlankIndex(slide.second, rowBlank, colBlank);
 
-//                if (!isValidMove(slide, tree)) {
-//                    return;
-//                }
+                if (!isValidMove(slide.second, tree)) {
+                    return;
+                }
             for(int i = 0; i < 3; i++) {
                 for(int j = 0; j < 3; j++) {
                     if(slide.second->data[i][j] == 0) { //check for the square containing 0
@@ -125,9 +125,9 @@ class Shift {
             int rowBlank, colBlank;
             //FindBlankIndex(slide.second, rowBlank, colBlank);
 
-    //                if (!isValidMove(slide, tree)) {
-    //                    return;
-    //                }
+                    if (!isValidMove(slide.second, tree)) {
+                        return;
+                    }
             for(int i = 0; i < 3; i++) {
                 for(int j = 0; j < 3; j++) {
                     if(slide.second->data[i][j] == 0) { //check for the square containing 0
@@ -175,70 +175,17 @@ class Shift {
         }
 
         bool isValidMove(Node* node, Tree* tree) {
+            for (int i = 0; i < tree->explore.size(); i++) {
+                if (tree->explore.at(i)->data[0][0] == node->data[0][0] && tree->explore.at(i)->data[0][1] == node->data[0][1] && tree->explore.at(i)->data[0][2] == node->data[0][2] &&
+                        tree->explore.at(i)->data[1][0] == node->data[1][0] && tree->explore.at(i)->data[1][1] == node->data[1][1] && tree->explore.at(i)->data[1][2] == node->data[1][2] &&
+                        tree->explore.at(i)->data[2][0] == node->data[2][0] && tree->explore.at(i)->data[2][1] == node->data[2][1] && tree->explore.at(i)->data[2][2] == node->data[2][2] )
+                {
+                    return false;
+                }
+            }
             return true;
         }
 
-        /*
-        Node* Move_Down(Node* slide) {
-              
-              if(rowBlank != 2) {
-                 Node* shift_child = new Node();
-                 shift_child->nodePrint();
-                 slide->down_child = shift_child;
-                 copyData(slide, shift_child);
-                 //switch tiles
-                 tempMove = shift_child->data[rowBlank + 1][colBlank];
-                 shift_child->data[rowBlank + 1][colBlank] = shift_child->data[rowBlank][colBlank];      //here the value below the tile becomes the new empty space
-                 shift_child->data[rowBlank][colBlank] = tempMove;
-                 shift_child->cost = slide->cost + 1;
-                 shift_child->nodePrint();
-
-                  tree->frontier.push(shift_child); //ERROR WHEN PUSHING TO FRONTIER
-                  //tree->frontier.top().second->nodePrint();
-                  return;
-              }
-        }
-
-        Node* Move_Left(Node* slide) {
-              
-              if(colBlank != 0) {
-                 Node* shift_child = new Node();
-                 shift_child->nodePrint();
-                 slide->left_child = shift_child;
-                 copyData(slide, shift_child);
-                 //switch tiles
-                 tempMove = shift_child->data[rowBlank][colBlank - 1];
-                 shift_child->data[rowBlank][colBlank - 1] = shift_child->data[rowBlank][colBlank];      //here the value below the tile becomes the new empty space
-                 shift_child->data[rowBlank][colBlank] = tempMove;
-                 shift_child->cost = slide->cost + 1;
-                 shift_child->nodePrint();
-
-                  tree->frontier.push(shift_child); //ERROR WHEN PUSHING TO FRONTIER
-                  //tree->frontier.top().second->nodePrint();
-                  return;
-              }
-        }
-
-        Node* Move_Right(Node* slide) {
-              
-              if(colBlank != 2) {
-                 Node* shift_child = new Node();
-                 shift_child->nodePrint();
-                 slide->right_child = shift_child;
-                 copyData(slide, shift_child);
-                 //switch tiles
-                 tempMove = shift_child->data[rowBlank][colBlank + 1];
-                 shift_child->data[rowBlank][colBlank + 1] = shift_child->data[rowBlank][colBlank];      //here the value below the tile becomes the new empty space
-                 shift_child->data[rowBlank][colBlank] = tempMove;
-                 shift_child->cost = slide->cost + 1;
-                 shift_child->nodePrint();
-
-                  tree->frontier.push(shift_child); //ERROR WHEN PUSHING TO FRONTIER
-                  //tree->frontier.top().second->nodePrint();
-                  return;
-              }
-        }
-         */
 
 };
 

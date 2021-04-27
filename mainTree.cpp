@@ -21,17 +21,7 @@ int main() {
     else {
         cout << "Solution Failed!" << endl;
     }
-//    root->left_child = new Node(2);
-//    root->right_child = new Node(3);
-//    root->left_child->left_child = new Node(4);
-//    root->left_child->right_child = new Node(5);
 
-
-    //cout << "\n" << squares << "-Puzzle Solution of binary tree is \n";
-    //Tree* tree = new Tree(root);
-    //tree->TreeTraversal();
-
-    //tree->DFS_Puzzle(root);
  
     return 0;
 };
