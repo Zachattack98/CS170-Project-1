@@ -4,24 +4,46 @@
 #include <iostream>
 
 using namespace std;
- 
+
+int puzzlePrompt();
+
 int main() {
- 
-    int squares;  //total number of squares (including the blank square) in the puzzle
-    int n;    //variable used for nxn array
 
- 
-    /*create root; just practice*/
-    Node* root = new Node();
-    Problem problem;
-    if (problem.GraphSearch(root)) {
-        cout << "Solution found!" << endl;
-        cout << problem.expanded << " nodes expanded." << endl;
-    }
-    else {
-        cout << "Solution Failed!" << endl;
-    }
+    cout << "Welcome to 862041797 and XXX 8 puzzle solver." << endl;
 
+    while(1) {
+        Node *root;
+        int Algorithm;
+        int decision;
+
+        cout << "Type 1 to use a default puzzle, or 2 to enter your own puzzle." << endl;
+        cin >> decision;
+
+        if (decision == 1) {
+            int difficulty;
+            cout << "Choose puzzle Complexity (1-6): ";
+            cin >> difficulty;
+            root = new Node(difficulty);
+        } else {
+            root = new Node('c');
+        }
+
+        cout << "Enter your choice of algorithm\n"
+             << "1. Uniform Cost Search\n2. A* with the Misplaced Tile heuristic.\n3. A* with the Eucledian distance heuristic."
+             << endl;
+        cin >> Algorithm;
+
+        Problem problem;
+        problem.algorithmchoice = Algorithm;
+
+        if (problem.GraphSearch(root)) {
+            cout << "Solution Found!" << endl;
+            cout << problem.expanded << " nodes expanded." << endl;
+        } else {
+            cout << "Solution Failed!" << endl;
+            cout << problem.expanded << " nodes expanded." << endl;
+        }
+    }
  
     return 0;
-};
+}

@@ -10,26 +10,29 @@ using namespace std;
 
 class Problem {
 public:
-    int expanded = 1;
-  //int intial_state[3][3];   //the state we begin with before doing any operations
+  int expanded;
+  int algorithmchoice;
   int goal_state[3][3] = { {1, 2, 3}, {4, 5, 6}, {7, 8, 0} };     //the anticipated state we hope to end the tree with
-  //Node* operators;    //a pointer for all the possible moves each node can make
 
   bool GraphSearch(Node* root) {
-      //Node* root = new Node();
       Tree* tree = new Tree(root);
       node_pair currTop;
 
       while(1) {
+          expanded = tree->expanded;
+          cout << tree->expanded << endl;
+
           if (tree->frontier.empty()) {
               return false;
           }
+
           tree->frontier.top().second->nodePrint();
+          cout << "cost: " << tree->frontier.top().second->cost << endl;
           currTop = tree->frontier.top();
           if (checkGoal(currTop.second)) {
               return true;
           }
-          tree->explored.push(currTop.second);
+          tree->explored.push(nullptr);
           expand(currTop, tree);
           tree->frontier.pop();
           tree->explore.push_back(currTop.second);
@@ -37,23 +40,22 @@ public:
   }
 
   void expand(node_pair node, Tree* tree) {
-      expanded++;
       Shift* shift;
-       shift->Move_Up(node, tree);
-       shift->Move_Down(node, tree);
-       shift->Move_Left(node, tree);
-       shift->Move_Right(node, tree);
+      shift->algorithm = algorithmchoice;
+        shift->Move_Up(node, tree);
+        shift->Move_Down(node, tree);
+        shift->Move_Left(node, tree);
+        shift->Move_Right(node, tree);
   }
 
   bool checkGoal(Node* node) {
-      for (int i = 0; i < 3; i++) {
-          for (int j = 0; i < 3; i++) {
-              if (node->data[i][j] != goal_state[i][j]) {
-                  return false;
-              }
-          }
+      if (node->data[0][0] == goal_state[0][0] && node->data[0][1] == goal_state[0][1] && goal_state[0][2] == node->data[0][2] &&
+          goal_state[1][0] == node->data[1][0] && goal_state[1][1] == node->data[1][1] && goal_state[1][2] == node->data[1][2] &&
+          goal_state[2][0] == node->data[2][0] && goal_state[2][1] == node->data[2][1] && goal_state[2][2] == node->data[2][2])
+      {
+          return true;
       }
-      return true;
+      return false;
   }
 
 };
