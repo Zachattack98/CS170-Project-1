@@ -41,9 +41,9 @@ class Shift {
                  tempMove = shift_child->data[rowBlank - 1][colBlank];
                  shift_child->data[rowBlank - 1][colBlank] = 0;      //here the value below the tile becomes the new empty space
                  shift_child->data[rowBlank][colBlank] = tempMove;
+                  
                  //calculating new move cost
-
-                 HeuristicCost = 0;
+                 HeuristicCost = 0.0;
                  if (algorithm == 2) {
                      HeuristicCost = Misplaced_A_Search(shift_child);
                  }
@@ -81,8 +81,9 @@ class Shift {
                 tempMove = shift_child->data[rowBlank + 1][colBlank];
                 shift_child->data[rowBlank + 1][colBlank] = 0;      //here the value below the tile becomes the new empty space
                 shift_child->data[rowBlank][colBlank] = tempMove;
+                
                 //calculating new move cost
-                HeuristicCost = 0;
+                HeuristicCost = 0.0;
                 if (algorithm == 2) {
                     HeuristicCost = Misplaced_A_Search(shift_child);
                 }
@@ -121,8 +122,9 @@ class Shift {
                 tempMove = shift_child->data[rowBlank][colBlank - 1];
                 shift_child->data[rowBlank][colBlank - 1] = 0;      //here the value below the tile becomes the new empty space
                 shift_child->data[rowBlank][colBlank] = tempMove;
+                
                 //calculating new move cost
-                HeuristicCost = 0;
+                HeuristicCost = 0.0;
                 if (algorithm == 2) {
                     HeuristicCost = Misplaced_A_Search(shift_child);
                 }
@@ -160,8 +162,9 @@ class Shift {
                 tempMove = shift_child->data[rowBlank][colBlank + 1];
                 shift_child->data[rowBlank][colBlank + 1] = 0;      //here the value below the tile becomes the new empty space
                 shift_child->data[rowBlank][colBlank] = tempMove;
+                
                 //calculating new move cost
-                HeuristicCost = 0;
+                HeuristicCost = 0.0;
                 if (algorithm == 2) {
                     HeuristicCost = Misplaced_A_Search(shift_child);
                 }
@@ -204,7 +207,7 @@ class Shift {
         }
 
         double Euclid_A_Search(Node* node) {
-            double heuristic = 0;
+            double heuristic = 0.0;
             for (int i = 0; i < 3; i++) {
                 for (int j = 0; j < 3; j++) {
                     heuristic += tileDistance(node->data[i][j], i, j);
@@ -214,7 +217,7 @@ class Shift {
         }
 
         double tileDistance(int tile, int x, int y) {
-            double distance = 0;
+            double distance = 0.0;
             switch(tile) {
                 case 1:
                     distance = sqrt( pow(0 - x,2) + pow(0 - y,2));
