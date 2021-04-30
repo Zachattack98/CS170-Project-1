@@ -50,14 +50,8 @@ class Shift {
                  else if (algorithm == 3) {
                      HeuristicCost = Euclid_A_Search(shift_child);
                  }
-                  if (algorithm == 2) {
-                      shift_child->cost = HeuristicCost;
-                      tree->frontier.push(make_pair(HeuristicCost, shift_child));
-                  }
-                  else {
-                      shift_child->cost = slide.first + 1 + HeuristicCost;
-                      tree->frontier.push(make_pair(slide.first + 1 + HeuristicCost, shift_child)); //ERROR WHEN PUSHING TO FRONTIER
-                  }
+                 shift_child->cost = slide.first + 1 + HeuristicCost;
+                 tree->frontier.push(make_pair(slide.first + 1 + HeuristicCost, shift_child)); //ERROR WHEN PUSHING TO FRONTIER
                  return;
               }
         }
@@ -95,14 +89,8 @@ class Shift {
                 else if (algorithm == 3) {
                     HeuristicCost = Euclid_A_Search(shift_child);
                 }
-                if (algorithm == 2) {
-                    shift_child->cost = HeuristicCost;
-                    tree->frontier.push(make_pair(HeuristicCost, shift_child));
-                }
-                else {
-                    shift_child->cost = slide.first + 1 + HeuristicCost;
-                    tree->frontier.push(make_pair(slide.first + 1 + HeuristicCost, shift_child)); //ERROR WHEN PUSHING TO FRONTIER
-                }
+                shift_child->cost = slide.first + 1 + HeuristicCost;
+                tree->frontier.push(make_pair(slide.first + 1 + HeuristicCost, shift_child)); //ERROR WHEN PUSHING TO FRONTIER
                 return;
 
             }
@@ -141,14 +129,8 @@ class Shift {
                 else if (algorithm == 3) {
                     HeuristicCost = Euclid_A_Search(shift_child);
                 }
-                if (algorithm == 2) {
-                    shift_child->cost = HeuristicCost;
-                    tree->frontier.push(make_pair(HeuristicCost, shift_child));
-                }
-                else {
-                    shift_child->cost = slide.first + 1 + HeuristicCost;
-                    tree->frontier.push(make_pair(slide.first + 1 + HeuristicCost, shift_child)); //ERROR WHEN PUSHING TO FRONTIER
-                }
+                shift_child->cost = slide.first + 1 + HeuristicCost;
+                tree->frontier.push(make_pair(slide.first + 1 + HeuristicCost, shift_child)); //ERROR WHEN PUSHING TO FRONTIER
                 return;
             }
         }
@@ -186,14 +168,8 @@ class Shift {
                 else if (algorithm == 3) {
                     HeuristicCost = Euclid_A_Search(shift_child);
                 }
-                if (algorithm == 2) {
-                    shift_child->cost = HeuristicCost;
-                    tree->frontier.push(make_pair(HeuristicCost, shift_child));
-                }
-                else {
-                    shift_child->cost = slide.first + 1 + HeuristicCost;
-                    tree->frontier.push(make_pair(slide.first + 1 + HeuristicCost, shift_child)); //ERROR WHEN PUSHING TO FRONTIER
-                }
+                shift_child->cost = slide.first + 1 + HeuristicCost;
+                tree->frontier.push(make_pair(slide.first + 1 + HeuristicCost, shift_child)); //ERROR WHEN PUSHING TO FRONTIER
                 return;
 
             }
@@ -221,9 +197,9 @@ class Shift {
 
         double Misplaced_A_Search(Node* node) {
             double heuristic = 0;
-            if (node->data[0][0] == 1) {heuristic++;} if (node->data[0][1] == 2) {heuristic++;} if (node->data[0][2] == 3) {heuristic++;}
-            if (node->data[1][0] == 4) {heuristic++;} if (node->data[1][1] == 5) {heuristic++;} if (node->data[1][2] == 6) {heuristic++;}
-            if (node->data[2][0] == 7) {heuristic++;} if (node->data[2][1] == 8) {heuristic++;} if (node->data[2][2] == 0) {heuristic++;}
+            if (node->data[0][0] != 1) {heuristic++;} if (node->data[0][1] != 2) {heuristic++;} if (node->data[0][2] != 3) {heuristic++;}
+            if (node->data[1][0] != 4) {heuristic++;} if (node->data[1][1] != 5) {heuristic++;} if (node->data[1][2] != 6) {heuristic++;}
+            if (node->data[2][0] != 7) {heuristic++;} if (node->data[2][1] != 8) {heuristic++;} if (node->data[2][2] != 0) {heuristic++;}
             return heuristic;
         }
 
