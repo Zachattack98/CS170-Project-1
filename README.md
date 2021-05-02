@@ -17,11 +17,13 @@ After you type '1' or '2' and press ENTER the next task will be different but if
 
 If you typed '1' you should see the following display:
 
-
+![Default](/Complexity.pdf)
 
 If you typed '2' you should see the following display:
 
+![Create (Start)](/Create_Puzzle_1.pdf)
 
+![Create (End)](/Create_Puzzle_2.pdf)
 
 Also, type three numbers ranging from 0-8, make sure to space each. Once the first row is filled press ENTER to go to the next row and type three more numbers, continue this until you have three rows each containing three numbers creating a 3x3 array puzzle. Note: the index containing '0' will represent the blank square. If you type anything symbols other than 0-8, more or less than three numbers per row, and/or use the same number in more than one row you should see the message "Invalid Puzzle! Please enter your puzzle again below!" then you will again see the same message for inputting the numbers as shown above.
 
