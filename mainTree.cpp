@@ -10,7 +10,7 @@ int puzzlePrompt();
 int main() {
     int proceed = 1;
     
-    cout << "Welcome to 862041797 and XXX 8 puzzle solver." << endl;
+    cout << "Welcome to 862041797 and 862130859 8 puzzle solver." << endl;
 
     while(proceed) {
         Node *root;
