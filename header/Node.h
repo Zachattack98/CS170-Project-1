@@ -24,13 +24,37 @@ class Node {
 
 
         Node(char c) {
-            cout << "Enter your puzzle, use a zero to represent the blank" << endl;
-            cout << "Enter the first row, use space or tabs between numbers: ";
-            cin >> data[0][0] >> data[0][1] >> data[0][2];
-            cout << "Enter the second row, use space or tabs between numbers: ";
-            cin >> data[1][0] >> data[1][1] >> data[1][2];
-            cout << "Enter the third row, use space or tabs between numbers: ";
-            cin >> data[2][0] >> data[2][1] >> data[2][2];
+            int valid = 1;
+            
+            while(valid) {
+                cout << "Enter your puzzle, use a zero to represent the blank" << endl;
+                cout << "Enter the first row, use space or tabs between numbers: ";
+                cin >> data[0][0] >> data[0][1] >> data[0][2];
+                cout << "Enter the second row, use space or tabs between numbers: ";
+                cin >> data[1][0] >> data[1][1] >> data[1][2];
+                cout << "Enter the third row, use space or tabs between numbers: ";
+                cin >> data[2][0] >> data[2][1] >> data[2][2];
+                
+                //check for valid 3x3 puzzle tiles
+                if((data[0][0] != 0 && data[0][0] != 1 && data[0][0] != 2 && data[0][0] != 3 && data[0][0] != 4 && data[0][0] != 5 && data[0][0] != 6 && data[0][0] != 7 && data[0][0] != 8) ||
+                   (data[0][1] != 0 && data[0][1] != 1 && data[0][1] != 2 && data[0][1] != 3 && data[0][1] != 4 && data[0][1] != 5 && data[0][1] != 6 && data[0][1] != 7 && data[0][1] != 8) ||
+                   (data[0][2] != 0 && data[0][2] != 1 && data[0][2] != 2 && data[0][2] != 3 && data[0][2] != 4 && data[0][2] != 5 && data[0][2] != 6 && data[0][2] != 7 && data[0][2] != 8) ||
+                   (data[1][0] != 0 && data[1][0] != 1 && data[1][0] != 2 && data[1][0] != 3 && data[1][0] != 4 && data[1][0] != 5 && data[1][0] != 6 && data[1][0] != 7 && data[1][0] != 8) ||
+                   (data[1][1] != 0 && data[1][1] != 1 && data[1][1] != 2 && data[1][1] != 3 && data[1][1] != 4 && data[1][1] != 5 && data[1][1] != 6 && data[1][1] != 7 && data[1][1] != 8) ||
+                   (data[1][2] != 0 && data[1][2] != 1 && data[1][2] != 2 && data[1][2] != 3 && data[1][2] != 4 && data[1][2] != 5 && data[1][2] != 6 && data[1][2] != 7 && data[1][2] != 8) ||
+                   (data[2][0] != 0 && data[2][0] != 1 && data[2][0] != 2 && data[2][0] != 3 && data[2][0] != 4 && data[2][0] != 5 && data[2][0] != 6 && data[2][0] != 7 && data[2][0] != 8) ||
+                   (data[2][1] != 0 && data[2][1] != 1 && data[2][1] != 2 && data[2][1] != 3 && data[2][1] != 4 && data[2][1] != 5 && data[2][1] != 6 && data[2][1] != 7 && data[2][1] != 8) ||
+                   (data[2][2] != 0 && data[2][2] != 1 && data[2][2] != 2 && data[2][2] != 3 && data[2][2] != 4 && data[2][2] != 5 && data[2][2] != 6 && data[2][2] != 7 && data[2][2] != 8) ||
+                   (data[0][0] != data[0][1]) || (data[0][0] != data[0][2]) || (data[0][0] != data[1][0]) || (data[0][0] != data[1][1]) || (data[0][0] != data[1][2]) || (data[0][0] != data[2][0]) || 
+                   (data[0][0] != data[2][1]) || (data[0][0] != data[2][2]) || (data[0][1] != data[0][2]) || (data[0][1] != data[1][0]) || (data[0][1] != data[1][1]) || (data[0][1] != data[1][2]) || 
+                   (data[0][1] != data[2][0]) || (data[0][1] != data[2][1]) || (data[0][1] != data[2][2]) || (data[0][2] != data[1][0]) || (data[0][2] != data[1][1]) || (data[0][2] != data[1][2]) || 
+                   (data[0][2] != data[2][0]) || (data[0][2] != data[2][1]) || (data[0][1] != data[2][2]) || (data[1][0] != data[1][1]) || (data[1][0] != data[1][2]) || (data[1][0] != data[2][0]) || 
+                   (data[1][0] != data[2][1]) || (data[1][0] != data[2][2]) || (data[1][1] != data[1][2]) || (data[1][1] != data[2][0]) || (data[1][1] != data[2][1]) || (data[1][1] != data[2][2]) ||
+                   (data[1][2] != data[2][0]) || (data[1][2] != data[2][1]) || (data[1][2] != data[2][2]) || (data[2][0] != data[2][1]) || (data[2][0] != data[2][2]) || (data[2][1] != data[2][2])) {
+                    
+                    valid = 0;
+                }
+            }
         }
 
 
