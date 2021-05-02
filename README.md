@@ -23,7 +23,7 @@ If you typed '2' you should see the following display:
 
 
 
-Also, type three numbers ranging from 0-8, make sure to space each. Once the first row is filled press ENTER to go to the next row and type three more numbers, continue this until you have three rows each containing three numbers creating a 3x3 array puzzle. Note: the index containing '0' will represent the blank square. If you type anything symbols other than 0-8, more or less than three numbers per row, and/or use the same number in more than one row you should see the message "That is not a puzzle! Please re-enter your choice." then you will again see the same message for inputting the numbers as shown above.
+Also, type three numbers ranging from 0-8, make sure to space each. Once the first row is filled press ENTER to go to the next row and type three more numbers, continue this until you have three rows each containing three numbers creating a 3x3 array puzzle. Note: the index containing '0' will represent the blank square. If you type anything other than 0-8 (whole numbers), more or less than three numbers per row, and/or use the same number in more than one row you should see the message "That is not a valid puzzle! Please re-type your each tile." then you will again see the same message for inputting the numbers as shown above.
 
 
 (2)
