@@ -54,6 +54,9 @@ class Node {
                     
                     valid = 0;
                 }
+                else {
+                    cout << "\nThat is not a valid puzzle! Please re-type your each tile." << endl << endl;
+                }
             }
         }
 
