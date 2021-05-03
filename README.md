@@ -50,7 +50,7 @@ There will be a message that states whether the algoithm has succeeded. You shou
 
 (4)
 
-Important Note: after the solution is provided and we reached the end of the process, you will be asked again whether you want to solve a default puzzle or create your own. Then the same steps above will occur once more and will continue until the program is terminated.
+Lastly, you will be asked to type 'Y' for yes or 'N' for no for whether you want to solve another 8-puzzle or simply end the simulation.
 
 Have fun with solving as many 8 puzzles as you like in the given C++ program! (But only puzzle that are 3x3, 8 tiles to slide, no more no less.)
 
