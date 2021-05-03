@@ -19,19 +19,17 @@ public:
       node_pair currTop;
 
       while(1) {
-          expanded = tree->expanded;
-          cout << tree->expanded << endl;
-
-          if (tree->frontier.empty()) {
+          if (tree->frontier.empty() || tree->expanded == 300000) {
               return false;
           }
 
           tree->frontier.top().second->nodePrint();
-          cout << "cost: " << tree->frontier.top().second->cost << endl;
           currTop = tree->frontier.top();
           if (checkGoal(currTop.second)) {
+              expanded = tree->expanded;
               return true;
           }
+          cout << "The best state to expand with cost: " << tree->frontier.top().second->cost << " is..." << endl;
           tree->explored.push(nullptr);
           expand(currTop, tree);
           tree->frontier.pop();

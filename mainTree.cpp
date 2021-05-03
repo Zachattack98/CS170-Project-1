@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+//#include <bits/stdc++.h>
 #include "Tree.h"
 #include "problem.h"
 #include <iostream>
@@ -9,19 +9,19 @@ int puzzlePrompt();
 
 int main() {
 
-    cout << "Welcome to 862041797 and XXX 8 puzzle solver." << endl;
+    cout << "Welcome to 862041797 and 862130859 8 puzzle solver." << endl;
 
     while(1) {
         Node *root;
         int Algorithm;
         int decision;
 
-        cout << "Type 1 to use a default puzzle, or 2 to enter your own puzzle." << endl;
+        cout << endl << "Type 1 to use a default puzzle, or 2 to enter your own puzzle." << endl;
         cin >> decision;
 
         if (decision == 1) {
             int difficulty;
-            cout << "Choose puzzle Complexity (1-6): ";
+            cout << "Choose puzzle Complexity (1-7): ";
             cin >> difficulty;
             root = new Node(difficulty);
         } else {
@@ -44,6 +44,5 @@ int main() {
             cout << problem.expanded << " nodes expanded." << endl;
         }
     }
- 
-    return 0;
+
 }

@@ -4,7 +4,6 @@
 #include <bits/stdc++.h>
 #include "Node.h"
 #include "Tree.h"
-#include "heuristic_search.h"
 
 using namespace std;
 
@@ -178,6 +177,7 @@ class Shift {
             }
         }
 
+        //copies the tile data from one node to another
         void copyData(Node* parent, Node* child) {
             for(int i = 0; i < 3; i++) {
                 for(int j = 0; j < 3; j++) {
@@ -186,6 +186,7 @@ class Shift {
             }
         }
 
+        //Goes through the entire explore vector and sees if the current node matches any nodes in the stack, returns true if not
         bool isValidMove(Node* node, Tree* tree) {
             for (int i = 0; i < tree->explore.size(); i++) {
                 if (tree->explore.at(i)->data[0][0] == node->data[0][0] && tree->explore.at(i)->data[0][1] == node->data[0][1] && tree->explore.at(i)->data[0][2] == node->data[0][2] &&
@@ -198,6 +199,7 @@ class Shift {
             return true;
         }
 
+        //for every tile not in the correct place, we increment the heuristic function value and return it.
         double Misplaced_A_Search(Node* node) {
             double heuristic = 0;
             if (node->data[0][0] != 1) {heuristic++;} if (node->data[0][1] != 2) {heuristic++;} if (node->data[0][2] != 3) {heuristic++;}
@@ -206,6 +208,7 @@ class Shift {
             return heuristic;
         }
 
+        //for loop that goes through the data[][] matrix and finds the euclidean distance from each tile to its goal position
         double Euclid_A_Search(Node* node) {
             double heuristic = 0.0;
             for (int i = 0; i < 3; i++) {
@@ -216,6 +219,7 @@ class Shift {
             return heuristic;
         }
 
+        //takes in tile value and x and y values for its position on the board and returns a euclidian distance
         double tileDistance(int tile, int x, int y) {
             double distance = 0.0;
             switch(tile) {

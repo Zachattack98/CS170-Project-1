@@ -26,15 +26,9 @@ class Tree {
             return;
         this->root = input_root;
         root->cost = 0;
-
         frontier.push(make_pair(0, root));
     }
 
-    void PrintPuzzle(Node* node) {
-        cout << "Puzzle: " << endl << node->data[0][0] << " " << node->data[0][1] << " " << node->data[0][2] << " "
-             << endl << node->data[1][0] << " " << node->data[1][1] << " " << node->data[1][2] << " " << endl
-             << node->data[2][0] << " " << node->data[2][1] << " " << node->data[2][2] << " " << endl << endl;
-    }
 };
 
 #endif
