@@ -26,11 +26,11 @@ class Node {
         Node(char c) {
             cost = 0;
             cout << "Enter your puzzle, use a zero to represent the blank" << endl;
-            cout << "Enter the first row, use space or tabs between numbers: " << endl;
+            cout << "Enter the first row, use space or tabs between numbers: ";
             cin >> data[0][0] >> data[0][1] >> data[0][2];
-            cout << "Enter the second row, use space or tabs between numbers: " << endl;
+            cout << "Enter the second row, use space or tabs between numbers: ";
             cin >> data[1][0] >> data[1][1] >> data[1][2];
-            cout << "Enter the third row, use space or tabs between numbers: " << endl;
+            cout << "Enter the third row, use space or tabs between numbers: ";
             cin >> data[2][0] >> data[2][1] >> data[2][2];
 
         }
