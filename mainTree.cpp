@@ -36,11 +36,11 @@ int main() {
 
         if (problem.GraphSearch(root)) {
             cout << "Solution Found!" << endl;
-            cout << problem.expanded << " nodes expanded." << endl;
+            cout << problem.expandN << " nodes expanded." << endl;
             cout << "The maximum number of nodes in the queue at any one time: " << problem.maxqueuesize << endl;
         } else {
             cout << "Solution Failed!" << endl;
-            cout << problem.expanded << " nodes expanded." << endl;
+            cout << problem.expandN << " nodes expanded." << endl;
             cout << "The maximum number of nodes in the queue at any one time: " << problem.maxqueuesize << endl;
         }
 
