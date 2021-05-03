@@ -5,7 +5,7 @@ The following is a guideline of what is expected when implementing the code and 
 
 The end/goal puzzle will be given, {{1,2,3}, {4,5,6}, {7,8,0}}, so all we need to decide is the initial puzzle and the search algorithm to implement.
 
-First, run the output frame of mainTree.cpp in the open terminal by typing $output mainTree.cpp.
+First, run the output frame of mainTree.cpp in the open terminal by typing ./runproject.
 
 (1)
 
