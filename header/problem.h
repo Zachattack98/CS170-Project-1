@@ -11,6 +11,7 @@ using namespace std;
 class Problem {
 public:
   int expanded;
+  int maxqueuesize = 0;
   int algorithmchoice;
   int goal_state[3][3] = { {1, 2, 3}, {4, 5, 6}, {7, 8, 0} };     //the anticipated state we hope to end the tree with
 
@@ -34,6 +35,8 @@ public:
           expand(currTop, tree);
           tree->frontier.pop();
           tree->explore.push_back(currTop.second);
+          if (maxqueuesize < tree->frontier.size())
+              maxqueuesize = tree->frontier.size();
       }
   }
 
