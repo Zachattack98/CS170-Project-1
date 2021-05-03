@@ -44,11 +44,11 @@ int main() {
             cout << "The maximum number of nodes in the queue at any one time: " << problem.maxqueuesize << endl;
         }
 
-//        cout << "Proceed? (Y/N):" << endl;
-//        char proceed;
-//        cin >> proceed;
-//        if (proceed != 'Y')
-//            exit(0);
+        cout << "Proceed? (Y/N):" << endl;
+        char proceed;
+        cin >> proceed;
+        if (proceed != 'Y')
+            exit(0);
     }
 
 }
