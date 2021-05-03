@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/Shams/Desktop/CS170/Project1/CS170-Project-1/mainTree.cpp" "C:/Users/Shams/Desktop/CS170/Project1/CS170-Project-1/cmake-build-debug/CMakeFiles/CS170_Project_1.dir/mainTree.cpp.obj"
+  "C:/Users/Shams/Desktop/CS170/Project1/CS170-Project1-KhuajaShams&ZacharyHill/mainTree.cpp" "C:/Users/Shams/Desktop/CS170/Project1/CS170-Project1-KhuajaShams&ZacharyHill/cmake-build-debug/CMakeFiles/CS170_Project_1.dir/mainTree.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
