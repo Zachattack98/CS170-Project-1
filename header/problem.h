@@ -10,8 +10,8 @@ using namespace std;
 
 class Problem {
 public:
-  int expanded;
-  int maxqueuesize = 0;
+  int expandN;    //expanding an individual node
+  int maxqueuesize = 1; //max queue size is always set 1 at start, regardless of the puzzle
   int algorithmchoice;
   int goal_state[3][3] = { {1, 2, 3}, {4, 5, 6}, {7, 8, 0} };     //the anticipated state we hope to end the tree with
 
@@ -27,7 +27,7 @@ public:
           tree->frontier.top().second->nodePrint();
           currTop = tree->frontier.top();
           if (checkGoal(currTop.second)) {
-              expanded = tree->expanded;
+              expandN = tree->expanded;
               return true;
           }
           cout << "The best state to expand with cost: " << tree->frontier.top().second->cost << " is..." << endl;
