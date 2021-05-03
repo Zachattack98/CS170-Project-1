@@ -32,15 +32,17 @@ Also, type three numbers ranging from 0-8, make sure to space each. Once the fir
 
 Now that we have the initial puzzle and the goal puzzle the next step to the select the algorithm from the list shown below:
 
-
+![Algorithm Choice](/Algorithm.pdf)
 
 Enter '1' for Uniform Cost Search, '2' for A* Search with Misplaced Tiles, or '3' for A* Search Using Euclidean Distance then press Enter. Again the program will verify your input and ask you to re-enter if it's not.
 
 (3)
 
-After selecting the algorithm, an entire list of nodes from the Tree will be displayed by using Breadth-First Search. The end of the simulation should look somewhat like below:
+After selecting the algorithm, an entire list of nodes from the Tree will be displayed by using Breadth-First Search. The process and end of the simulation should look somewhat like below:
 
+![Tree Creation](/Edge Path.pdf)
 
+![Solution](/End_Tree.pdf)
 
 You should also see the maximum number of nodes in the queue as well as the total n umber of nodes expanded for the selected initial puzzle and algorithm.
 
