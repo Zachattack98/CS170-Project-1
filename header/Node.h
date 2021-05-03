@@ -9,8 +9,6 @@ using namespace std;
 //use struct as its members are public by default
 class Node {
     public:
-//        double pathcost;
-//        double heuristiccost;
         double cost;
         int data[3][3];                   //data found found at each state; the new 8-puzzle we acquire after each operation
         Node* parent = nullptr;
@@ -34,6 +32,7 @@ class Node {
             cin >> data[1][0] >> data[1][1] >> data[1][2];
             cout << "Enter the third row, use space or tabs between numbers: " << endl;
             cin >> data[2][0] >> data[2][1] >> data[2][2];
+
         }
 
 

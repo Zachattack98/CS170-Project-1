@@ -5,8 +5,6 @@
 
 using namespace std;
 
-int puzzlePrompt();
-
 int main() {
 
     cout << "Welcome to 862041797 and 862130859 8 puzzle solver." << endl;
@@ -43,6 +41,12 @@ int main() {
             cout << "Solution Failed!" << endl;
             cout << problem.expanded << " nodes expanded." << endl;
         }
+
+        cout << "Proceed? (Y/N):" << endl;
+        char proceed;
+        cin >> proceed;
+        if (proceed != 'Y')
+            exit(0);
     }
 
 }
