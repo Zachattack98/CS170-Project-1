@@ -17,12 +17,12 @@ class Node {
         Node* left_child = nullptr;        //the child containing the puzzle after moving tile leftward
         Node* right_child = nullptr;       //the child containing the puzzle after moving tile rightward
 
-        // val is the value that has to be added to the data part
+        // reset cost when solving a new puzzle
         Node() {
             cost = 0;
         }
 
-
+        //function for enter user-developed puzzle
         Node(char c) {
             cost = 0;
             cout << "Enter your puzzle, use a zero to represent the blank" << endl;
