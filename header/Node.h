@@ -17,7 +17,7 @@ class Node {
         Node* left_child = nullptr;        //the child containing the puzzle after moving tile leftward
         Node* right_child = nullptr;       //the child containing the puzzle after moving tile rightward
 
-        // reset cost when solving a new puzzle
+        // reset cost to find the cost of a new edge
         Node() {
             cost = 0;
         }
